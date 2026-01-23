@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n, i;
+    int *marks;
+
+    // Ask number of subjects
+    printf("Enter number of subjects: ");
+    scanf("%d", &n);
+
+    // Allocate memory dynamically
+    marks = (int *)malloc(n * sizeof(int));
+
+    // Check if memory allocated successfully
+    if (marks == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    // Read marks
+    for (i = 0; i < n; i++) {
+        printf("Enter marks for subject %d: ", i + 1);
+        scanf("%d", &marks[i]);
+    }
+
+    // Display marks
+    printf("\nStudent Marks:\n");
+    for (i = 0; i < n; i++) {
+        printf("Subject %d: %d\n", i + 1, marks[i]);
+    }
+
+    // Free allocated memory
+    free(marks);
+
+    return 0;
+}
