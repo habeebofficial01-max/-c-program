@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int item;
+    struct Node *next;
+};
+
+int main() {
+    struct Node *head = NULL;
+    struct Node *newNode = NULL;
+    int i, num;
+
+    for (i = 0; i < 3; i++) {
+        scanf("%d", &num);
+
+        newNode = (struct Node *)malloc(sizeof(struct Node));
+        newNode->item = num;
+        newNode->next = head;
+        head = newNode;
+    }
+
+    while (head != NULL) {
+        printf("%d -> ", head->item);
+        head = head->next;
+    }
+    printf("NULL");
+
+    return 0;
+}
